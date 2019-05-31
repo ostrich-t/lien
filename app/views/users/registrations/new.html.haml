@@ -1,0 +1,33 @@
+.sign
+  = link_to "lien", root_path, class: "sign-logo"
+  .sign__container
+    .sign__container--title
+      %h2 新規登録
+    .sign__container__field
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "form-validate"}) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :ニックネーム
+          %span.required 必須
+          %br/
+          = f.text_field :nickname, class: 'validate[required]', "data-prompt-position": "inline"
+        .field
+          = f.label :メールアドレス
+          %span.required 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'validate[required, custom[email]', "data-prompt-position": "inline"
+        .field
+          = f.label :パスワード
+          %span.required 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: 'validate[required, minSize[6]', id: "password", "data-prompt-position": "inline"
+        .field
+          = f.label :パスワード確認
+          %span.required 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'validate[required, equals[password]]', "data-prompt-position": "inline"
+        .field
+          = recaptcha_tags
+        .actions.field
+          = f.submit "次に進む"
+  = render "users/shared/links"

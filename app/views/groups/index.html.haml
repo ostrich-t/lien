@@ -1,0 +1,63 @@
+= render "layouts/header"
+.main
+  %ul.side
+    %li.active
+      = link_to "コミニティー", root_path, class: "side--item"
+    %li
+      = link_to "ユーザー", users_path, class: "side--item"
+    %li
+      = link_to "イベント", root_path, class: "side--item"
+    %li
+      = link_to "設定", root_path, class: "side--item"
+  .communitys.container
+    %h2 コミュニティー
+    .community__list.row
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "神戸.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク好きが集まるコミニティー
+            %p 100030人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "ledmask.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク
+            %p 130人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "神戸.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク
+            %p 130人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "神戸.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク
+            %p 130人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "神戸.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク
+            %p 130人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。
+      .community__list__item.col-xl-4.col-lg-6
+        = image_tag "神戸.jpg", class: "community-image"
+        .community__list__item__detail
+          .community__list__item__detail--name
+            %h3 バイク
+            %p 130人
+          .community__list__item__detail--discription
+            %p バイク好きが集まるコミニティーです。週末はツーリングもやっています。
+  

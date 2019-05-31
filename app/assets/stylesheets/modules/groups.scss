@@ -1,0 +1,98 @@
+nav {
+  background-color: #fff;
+  padding: 10px 40px;
+  border-bottom: 1px solid #aaa;
+  .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+  .dropdown-toggle:hover {
+    background-color: #eee;
+  }
+  .notice {
+    font-size: 26px;
+  }
+}
+.main {
+  padding: 20px;
+  background-color: #eee;
+  min-height: 100vh;
+  .side {
+    width: 250px;
+    position: fixed;
+    li {
+      .side--item {
+        color: #111;
+        display: block;
+        padding: 10px;
+        &:hover {
+          text-decoration: none;
+          background-color: #fff;
+        }
+      }
+    }
+    .active {
+      background-color: #fff;
+    }
+  }
+  .communitys {
+    margin-left: 270px;
+    padding-top: 20px;
+    width: calc(100vw - 310px);
+    .community__list {
+      margin-top: 20px;
+      &__item {
+        margin: 20px 0;
+        overflow: hidden;
+        .community-image {
+          height: 140px;
+          width: 100%;
+          object-fit: cover;
+        }
+        &__detail {
+          background-color: #fff;
+          padding: 8px;
+          height: 136px;
+          position: relative;
+          &--name {
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+            padding: 4px;
+            h3 {
+              font-size: 20px;
+              width: 75%;
+              margin: 0;
+              float: left;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+            p {
+              color: #666;
+              width: 25%;
+              font-size: 14px;
+              margin: 0;
+              float: right;
+              text-align: right;
+            }
+          }
+          &--discription {
+            padding-top: 5px;
+            font-size: 15px;
+            p::after {
+              display: block;
+              content: '';
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 40%;
+						  height: 1.5em;
+              background: linear-gradient(to right, rgba(255,255,255,0), #fff 70%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

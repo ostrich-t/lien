@@ -1,0 +1,21 @@
+= render "layouts/header"
+.main
+  .user-side
+    %ul.side
+      %li
+        = link_to "参加コミュニティー", users_path, class: "side--item"
+      %li
+        = link_to "主催コミュニティー", root_path, class: "side--item"
+      %li
+        = link_to "友達", root_path, class: "side--item"
+    %ul.side.user-side
+      %li
+        = link_to "編集", root_path, class: "side--item"
+      %li
+        = link_to "ブロック", root_path, class: "side--item"
+      %li
+        = link_to "ログアウト", root_path, class: "side--item"
+      %li
+        = link_to "アカウント削除", root_path, class: "side--item"
+  .user
+    %h2 ユーザー情報

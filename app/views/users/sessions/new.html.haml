@@ -1,0 +1,30 @@
+.sign
+  = link_to "lien", root_path, class: "sign-logo"
+  .sign__container
+    .sign__container--title
+      %h2 Log in
+    .sign__container__field
+      .field
+        = button_to root_path, method: :get, class: "facebook" do
+          %span.facebook-icon
+            = icon "fab","facebook-square"
+          Facebookでログイン
+      .field
+        = button_to root_path, method: :get, class: "google" do
+          %span.google-icon
+            = icon "fab","google"
+          Googleでログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: "form-validate"}) do |f|
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'validate[required, custom[email]', "data-prompt-position": "inline"
+        .field
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "current-password", class: 'validate[required]', "data-prompt-position": "inline"
+        .field
+          = recaptcha_tags
+        .actions.field
+          = f.submit "Log in"
+  = render "users/shared/links"

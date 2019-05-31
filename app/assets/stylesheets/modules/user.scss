@@ -1,0 +1,14 @@
+.main {
+  .user-side {
+    margin: 0 auto;
+    float: left;
+    .side {
+      position: relative;
+    }
+  }
+  .user {
+    margin: 0 auto;
+    width: 700px;
+    float: right;
+  }
+}

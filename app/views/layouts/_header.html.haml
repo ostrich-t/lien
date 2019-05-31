@@ -1,0 +1,30 @@
+%nav.navber.navbar-light.navbar-expand-md.sticky-top.form-inline
+  .left.mr-auto.form-inline
+    = link_to "lien", root_path, class: "navbar-brand"
+    %form
+      %input{class: "form-control", placeholder: "検索"}
+      %button{type: "submit", class: "btn"} 検索
+  .right
+    - if user_signed_in?
+      %button{class: "btn dropdown-toggle", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false"}
+        - if current_user.profile.icon.attached? 
+          = image_tag "ledmask.jpg", class: "icon"
+        - else
+          = image_tag "icon_defo.jpg", class: "icon"
+        %span= current_user.nickname 
+        %ul.dropdown-menu
+          %li
+            = link_to "プロフィール", user_path(current_user), class: "dropdown-item"
+          %li
+            = link_to "参加コミニティー", root_path, class: "dropdown-item"
+          %li
+            = link_to "あなたが主催者のコミニティー", root_path, class: "dropdown-item"
+          %li
+            = link_to "友達", root_path, class: "dropdown-item"
+      = link_to root_path, class: "notice ml-3" do
+        = icon "far", "comment"
+      = link_to root_path, class: "notice ml-3" do
+        = icon "far", "bell"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "signup ml-3"
+      = link_to "新規登録", newsns_user_registration_path, class: "singup ml-3"

@@ -1,0 +1,51 @@
+= render "layouts/header"
+.main
+  %ul.side
+    %li
+      = link_to "コミニティー", root_path, class: "side--item"
+    %li.active
+      = link_to "ユーザー", users_path, class: "side--item"
+    %li
+      = link_to "イベント", root_path, class: "side--item"
+    %li
+      = link_to "設定", root_path, class: "side--item"
+  .users
+    %h2 ユーザー
+    .user__list.row
+      -# = link_to user_path(user) do
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvanfffffffffff
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。プログラミング初心者です。言語はrubyをメインに行なっています。駆け出しエンジニアと繋がりたい。気軽に友達申請してください。
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvan
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvan
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvan
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvan
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      .user__list__item.col-lg-6
+        .user__list__item--name
+          = image_tag "ledmask.jpg", class: "user-icon"
+          %h3 kalvan
+        .user__list__item--text
+          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
