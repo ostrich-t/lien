@@ -1,0 +1,23 @@
+= render "layouts/header"
+.sign
+  .sign__container
+    .sign__container--title
+      %h2 コミュニティー
+    .sign__container__field
+      = form_with(model: @group, local: true, id: "form-validate") do |f|
+        .field
+          = f.label :コミュニティー名
+          %span.required 必須
+          %br/
+          = f.text_field :title, class: 'validate[required]', "data-prompt-position": "inline"
+        .field
+          = f.label :画像
+          %br/
+          = f.file_field :group_image, id: "image"
+        .field
+          = f.label :説明
+          %span.required 必須
+          %br/
+          = f.text_area :description, class: 'validate[required]', "data-prompt-position": "inline"
+        .actions.field
+          = f.submit "新規登録"

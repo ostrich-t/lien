@@ -1,0 +1,28 @@
+.lien
+  .lien__top
+    %h1 lien
+    %p ご覧いただきありがとうございます。
+    = link_to "lienを始める", root_path, class: "lien-link"
+    %p 初めての方は下記をご覧ください。
+  .lien__description
+    .lien__description__detail
+      %h1 lienとは
+      %p lienはチャットアプリです。
+      %p ユーザーはコミュニティーを作成し、参加したユーザーとトークができます。
+    .lien__description__detail
+      %h1 バグ
+      %p ・headerのユーザー名のドロップダウンが機能しない場合がございます。再読み込みしていただくと、解決できます。
+      %p ・トークを送信する際、送信ボタンやCommand + Enterが利用できません。control + Enterをご利用ください。
+      %p ・チャットの非同期通信にてユーザーのアイコンが表示されません。
+      %p ・ログアウト、アカウント削除した際、ページが遷移しません。(ログアウト、削除はできています。)
+    .lien__description__detail
+      %h1 未実装
+      %p ・参加人数が多いコミュニティーから表示
+      %p ・ユーザーに対し友達申請やDM
+      %p ・イベント機能
+      %p ・通知機能
+      %p ・ブロック機能
+      %p ・設定
+      %p ・レスポンシブデザイン
+  .lien__btn
+    = link_to "lienを始める", root_path, class: "lien-link"

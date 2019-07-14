@@ -1,0 +1,18 @@
+.user-side
+  %ul.side
+    %li
+      = link_to "コミュニティー情報", group_path(@group), class: "side--item"
+    %li
+      = link_to "参加者", users_group_path(@group), class: "side--item"
+    %li
+      = link_to "イベント", group_path(@group), class: "side--item"
+  - if current_user.already_group?(@group) || @group.user_id == current_user.id
+    %ul.side
+      %li
+        = link_to "トーク", chat_group_path(@group), class: "side--item"
+      %li
+        = link_to "掲示板", group_bulletin_board_path(@group), class: "side--item"
+  - if current_user.id == @group.user_id
+    %ul.side
+      %li
+        = link_to "編集", edit_group_path(@group), class: "side--item"

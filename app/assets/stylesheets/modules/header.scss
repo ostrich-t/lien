@@ -1,0 +1,18 @@
+.navber {
+  background-color: #fff;
+  padding: 0 40px;
+  border-bottom: 1px solid #aaa;
+  height: 66px;
+  .dropdown-toggle {
+    max-width: 280px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+  .notice {
+    font-size: 26px;
+  }
+}

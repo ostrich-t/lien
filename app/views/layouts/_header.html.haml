@@ -1,14 +1,14 @@
 %nav.navber.navbar-light.navbar-expand-md.sticky-top.form-inline
   .left.mr-auto.form-inline
     = link_to "lien", root_path, class: "navbar-brand"
-    %form
-      %input{class: "form-control", placeholder: "検索"}
-      %button{type: "submit", class: "btn"} 検索
+    = form_tag(search_groups_path, method: "get") do
+      = text_field_tag :search, "", class: "form-control", placeholder: "気になるワード"
+      = submit_tag '検索', class: "btn btn-primary"
   .right
     - if user_signed_in?
       %button{class: "btn dropdown-toggle", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false"}
         - if current_user.profile.icon.attached? 
-          = image_tag "ledmask.jpg", class: "icon"
+          = image_tag current_user.profile.icon, class: "icon"
         - else
           = image_tag "icon_defo.jpg", class: "icon"
         %span= current_user.nickname 
@@ -16,15 +16,17 @@
           %li
             = link_to "プロフィール", user_path(current_user), class: "dropdown-item"
           %li
-            = link_to "参加コミニティー", root_path, class: "dropdown-item"
+            = link_to "参加コミニティー", join_groups_user_path(current_user), class: "dropdown-item"
           %li
-            = link_to "あなたが主催者のコミニティー", root_path, class: "dropdown-item"
+            = link_to "あなたが主催者のコミニティー", groups_user_path(current_user), class: "dropdown-item"
           %li
             = link_to "友達", root_path, class: "dropdown-item"
-      = link_to root_path, class: "notice ml-3" do
+      = link_to chat_user_path(current_user), class: "notice ml-3" do
         = icon "far", "comment"
       = link_to root_path, class: "notice ml-3" do
         = icon "far", "bell"
+      = link_to new_group_path, class: "notice ml-3" do
+        = icon "fas", "plus"
     - else
       = link_to "ログイン", new_user_session_path, class: "signup ml-3"
-      = link_to "新規登録", newsns_user_registration_path, class: "singup ml-3"
+      = link_to "新規登録", new_user_registration_path, class: "singup ml-3"

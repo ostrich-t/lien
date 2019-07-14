@@ -4,13 +4,28 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations',
     sessions:      'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  devise_scope :user do
-    get 'signupsns' => 'users/registrations#newsns', as: :newsns_user_registration
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "groups#index"
-  resources :groups
-  resources :users
-  resource :profile
+  resources :groups do
+    resource :bulletin_board, only: [:show, :edit, :update]
+    member do
+      get "users"
+      post "join"
+      delete "leave"
+      get "chat"
+    end
+    collection do
+      get 'search'
+    end
+  end
+  resources :users do
+    member do
+      get "groups"
+      get "join_groups"
+      get "chat"
+    end
+  end
+  resource :profiles
 end

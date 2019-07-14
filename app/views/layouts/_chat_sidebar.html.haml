@@ -1,0 +1,21 @@
+.chat-side
+  - @groups.each do |group|
+    = link_to chat_group_path(group), class: "" do
+      .chat-side__item
+        - if group.group_image.attached? 
+          = image_tag group.group_image, class: "group-image"
+        - else
+          .group_header
+        .chat-side__item__detail
+          %h3= group.title
+          %p= group.group_users.length.to_s + "人"
+  - @join_groups.each do |g|
+    = link_to chat_group_path(g.group), class: "" do
+      .chat-side__item
+        - if g.group.group_image.attached? 
+          = image_tag g.group.group_image, class: "group-image"
+        - else
+          .group_header
+        .chat-side__item__detail
+          %h3= g.group.title
+          %p= g.group.group_users.length.to_s + "人"

@@ -1,0 +1,20 @@
+= render "layouts/header"
+.main.main-a
+  = render "layouts/user_sidebar"
+  .user-communitys
+    %h1 主催コミュニティー
+    .container
+      .community__list.row
+        - @groups.each do |group|
+          = link_to group_path(group), class: "col-lg-6" do
+            .community__list__item
+              - if group.group_image.attached? 
+                = image_tag group.group_image, class: "community-image"
+              - else
+                .group_header
+              .community__list__item__detail
+                .community__list__item__detail--name
+                  %h3= group.title
+                  %p= group.group_users.length.to_s + "人"
+                .community__list__item__detail--discription
+                  %p= group.description

@@ -14,10 +14,13 @@
  *= require validationEngine.jquery
  */
 @import "./reset";
+@import "modules/header";
 @import "modules/groups";
 @import "modules/sign";
 @import "modules/users";
 @import "modules/user";
+@import "modules/chat";
+@import "modules/about";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";

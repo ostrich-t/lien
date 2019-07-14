@@ -1,0 +1,11 @@
+.message
+  .message-icon
+    - if message.user.profile.icon.attached? 
+      = image_tag message.user.profile.icon, class: "user-icon"
+    - else
+      = image_tag "icon_defo.jpg", class: "user-icon"
+  .message__right
+    .message__right-nickname
+      = message.user.nickname
+    .message__right-text
+      = simple_format(message.text)

@@ -1,0 +1,14 @@
+= render "layouts/header"
+.main.main-a
+  = render "layouts/group_sidebar"
+  .user
+    .user--title
+      %h1= @group.title
+    .sign__container__field
+      = form_with(model: @bulletin_board, url: group_bulletin_board_path, local: true) do |f|
+        .field
+          = f.label :掲示板
+          %br/
+          = f.text_area :text
+        .actions.field
+          = f.submit "記入する"

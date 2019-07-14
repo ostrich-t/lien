@@ -10,42 +10,17 @@
     %li
       = link_to "設定", root_path, class: "side--item"
   .users
-    %h2 ユーザー
+    %h1 ユーザー
     .user__list.row
-      -# = link_to user_path(user) do
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvanfffffffffff
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。プログラミング初心者です。言語はrubyをメインに行なっています。駆け出しエンジニアと繋がりたい。気軽に友達申請してください。
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvan
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvan
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvan
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvan
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-      .user__list__item.col-lg-6
-        .user__list__item--name
-          = image_tag "ledmask.jpg", class: "user-icon"
-          %h3 kalvan
-        .user__list__item--text
-          %p 東京に住む２０歳の大学生です。趣味はバイク、ツーリングです。愛車はcb400sf。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+      - @users.each do |user|
+        = link_to user_path(user), class: "col-lg-6" do
+          .user__list__item
+            .user__list__item--name
+              - if user.profile.icon.attached? 
+                = image_tag user.profile.icon, class: "user-icon"
+              - else
+                = image_tag "icon_defo.jpg", class: "user-icon"
+              %h3= user.nickname
+            .user__list__item--text
+              %p= user.profile.text
+    = paginate @users

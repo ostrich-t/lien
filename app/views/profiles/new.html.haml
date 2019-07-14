@@ -1,14 +1,15 @@
 .sign
-  = link_to "lien", root_path, class: "sign-logo"
+  .sign-logo
+    %h1 lien
   .sign__container
     .sign__container--title
       %h2 プロフィール
     .sign__container__field
-      = form_with(url: profile_path, local: true) do |f|
+      = form_with(model: @profile, local: true) do |f|
         .field
           = f.label :アイコン
           %br/
-          = f.file_field :icon, id: "icon"
+          = f.file_field :icon, id: "image"
         .field
           = f.label :性別
           %br/

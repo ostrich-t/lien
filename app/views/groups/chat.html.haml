@@ -1,0 +1,14 @@
+= render "layouts/header"
+.chat__container
+  .chat__container__box
+    = render "layouts/chat_sidebar"
+    .chat
+      .chat-title
+        = link_to group_path(@group) do
+          %h1= @group.title
+      .chat-messages#scroll
+        #messages{"data-group_id" => "#{@group.id}"}
+          = render @messages
+      %form.chat-form
+        %textarea{type: "text", "data-behavior": "group_chat"}
+        %button.btn.btn-primary#chat-btn 送信

@@ -1,0 +1,18 @@
+= render "layouts/header"
+.main.main-a
+  = render "layouts/group_sidebar"
+  .user
+    .user--title
+      %h1 掲示板
+    .user__info
+      - if @group.group_image.attached? 
+        = image_tag @group.group_image, class: "group_image"
+      - else
+        .group_header
+      .user__info--detail
+        .group-title
+          %h1= @group.title
+        .user__info--detail-item
+          = simple_format(@group.bulletin_board.text)
+        .user__info--detail-item
+          = button_to "掲示板に記入する", edit_group_bulletin_board_path(@group), method: :get, class: "btn btn-primary btn-block"

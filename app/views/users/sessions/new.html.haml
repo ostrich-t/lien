@@ -5,12 +5,17 @@
       %h2 Log in
     .sign__container__field
       .field
-        = button_to root_path, method: :get, class: "facebook" do
+        = button_to new_user_registration_path, method: :get, class: "email" do
+          %span.facebook-icon
+            = icon "far","envelope"
+          メールアドレスで登録
+      .field
+        = button_to user_facebook_omniauth_authorize_path, method: :get, class: "facebook" do
           %span.facebook-icon
             = icon "fab","facebook-square"
           Facebookでログイン
       .field
-        = button_to root_path, method: :get, class: "google" do
+        = button_to user_google_oauth2_omniauth_authorize_path, method: :get, class: "google" do
           %span.google-icon
             = icon "fab","google"
           Googleでログイン

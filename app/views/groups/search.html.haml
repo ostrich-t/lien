@@ -1,0 +1,28 @@
+= render "layouts/header"
+.main
+  %ul.side
+    %li.active
+      = link_to "コミニティー", root_path, class: "side--item"
+    %li
+      = link_to "ユーザー", users_path, class: "side--item"
+    %li
+      = link_to "イベント", root_path, class: "side--item"
+    %li
+      = link_to "設定", root_path, class: "side--item"
+  .communitys.container
+    %h1 コミュニティー
+    .community__list.row
+      - @groups.each do |group|
+        = link_to group_path(group), class: "col-xl-4 col-lg-6" do
+          .community__list__item
+            - if group.group_image.attached? 
+              = image_tag group.group_image, class: "community-image"
+            - else
+              .group_header
+            .community__list__item__detail
+              .community__list__item__detail--name
+                %h3= group.title
+                %p= group.group_users.length.to_s + "人"
+              .community__list__item__detail--discription
+                %p= group.description
+    = paginate @groups

@@ -1,0 +1,15 @@
+= render "layouts/header"
+.main.main-a
+  = render "layouts/group_sidebar"
+  .user__list.group-user
+    - @group.group_users.each do |u|
+      = link_to user_path(u.user), class: "col-lg-6" do
+        .user__list__item
+          .user__list__item--name
+            - if u.user.profile.icon.attached? 
+              = image_tag u.user.profile.icon, class: "user-icon"
+            - else
+              = image_tag "icon_defo.jpg", class: "user-icon"
+            %h3= u.user.nickname
+          .user__list__item--text
+            %p= u.user.profile.text

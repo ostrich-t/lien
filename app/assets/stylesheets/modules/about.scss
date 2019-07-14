@@ -1,0 +1,48 @@
+.lien {
+  background-color: #fff;
+  &__top {
+    background-color: #87CEFA;
+    padding: 30px;
+    text-align: center;
+    h1 {
+      margin: 70px 0 30px;
+      font-size: 60px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 22px;
+      padding: 50px 0;
+    }
+  }
+  &__description {
+    padding: 50px 0;
+    &__detail {
+      width: 800px;
+      margin: 30px auto;
+      h1 {
+        font-size: 34px;
+        font-weight: bold;
+        padding: 10px 0;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+  &__btn {
+    text-align: center;
+    padding-bottom: 200px;
+  }
+  .lien-link {
+    background-color: #036;
+    color: #fff;
+    padding: 20px 50px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+  }
+}

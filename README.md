@@ -10,7 +10,6 @@
 - has_many :usergroup
 - has_many :groups, through: :usergroup
 - has_many :chat
-- has_many :bulletin-board
 - has_one :profile
 
 ## profile
@@ -28,7 +27,6 @@
 ## group
 |Column|Type|Options|
 |title|string|null: false|
-|image|string|
 |description|text|null: false|
 |user_id|references|null: false, foreign_key: ture|
 
@@ -36,6 +34,7 @@
 - has_many :usergroup
 - has_many :users, through: :usergroup
 - has_many :chat
+- has_one :bulletin_board
 
 ## usergroup（中間テーブル）
 |Column|Type|Options|
@@ -64,11 +63,8 @@
 
 ## bulletin-board
 |Column|Type|Options|
-|text|string|null: false|
-|image|string|
-|user_id|references|foreign_key: true|
+|text|text|null: false|
 |group_id|references|foreign_key: true|
 
 ### Association
-- belongs_to :user
 - belongs_to :group

@@ -1,21 +1,34 @@
 = render "layouts/header"
-.main
-  .user-side
-    %ul.side
-      %li
-        = link_to "参加コミュニティー", users_path, class: "side--item"
-      %li
-        = link_to "主催コミュニティー", root_path, class: "side--item"
-      %li
-        = link_to "友達", root_path, class: "side--item"
-    %ul.side.user-side
-      %li
-        = link_to "編集", root_path, class: "side--item"
-      %li
-        = link_to "ブロック", root_path, class: "side--item"
-      %li
-        = link_to "ログアウト", root_path, class: "side--item"
-      %li
-        = link_to "アカウント削除", root_path, class: "side--item"
+.main.main-a
+  = render "layouts/user_sidebar"
   .user
-    %h2 ユーザー情報
+    .user--title
+      %h1 ユーザー情報
+    .user__info
+      .user__info--name
+        - if @user.profile.icon.attached? 
+          = image_tag @user.profile.icon, class: "user-icon"
+        - else
+          = image_tag "icon_defo.jpg", class: "user-icon"
+        %span= @user.nickname
+      .user__info--detail
+        .user__info--detail-item
+          %h2 性別：
+          %span= @user.profile.gender
+        .user__info--detail-item
+          %h2 生年月日：
+          %span= @user.profile.birth_info
+        .user__info--detail-item
+          %h2 居住地：
+          %span= @user.profile.residence
+        .user__info--detail-item
+          %h2 趣味：
+          %span= @user.profile.hobby
+        .user__info--detail-item
+          %h2 職業：
+          %sapn= @user.profile.job
+        .user__info--detail-item
+          %h2 自己紹介文
+          %p= simple_format(@user.profile.text)
+        -# .user__info--detail-item
+        -#   = button_to "友達になる", root_path, class: "btn btn-primary btn-block"

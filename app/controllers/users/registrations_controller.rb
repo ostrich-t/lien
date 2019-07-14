@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
   
   def after_sign_up_path_for(resource)
-    new_profile_path
+    new_profiles_path
   end
 
   # GET /resource/sign_up
