@@ -8,7 +8,7 @@
       = link_to "主催コミュニティー", groups_user_path(@user), class: "side--item"
     %li
       = link_to "友達", root_path, class: "side--item"
-  - if @user.id == current_user.id
+  - if user_signed_in? && @user.id == current_user.id
     %ul.side.user-side
       %li
         = link_to "編集", edit_profiles_path, class: "side--item"

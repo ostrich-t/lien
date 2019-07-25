@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
   before_action :set_group, except:[:index, :search, :new, :create]
-  before_action :sign_in_user, except:[:index, :search, :show, :users]
-  before_action :ensure_edit , only:[:edit, :udate]
+  before_action :authenticate_user!, except:[:index, :search, :show, :users]
+  before_action :ensure_user, only:[:edit, :udate]
+  before_action :ensure_member, only:[:chat] 
 
   def index
     # @groups = Group.joins(:group_users).group(:group_id).order('count(group_users.user_id) desc').page(params[:page])
@@ -72,7 +73,13 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
-  def ensure_edit
+  def ensure_user
     redirect_to group_path unless @group.user == current_user
+  end
+
+  def ensure_member
+    unless @group.user == current_user
+      redirect_to group_path unless @group.group_users.find_by(user_id: current_user.id)
+    end
   end
 end

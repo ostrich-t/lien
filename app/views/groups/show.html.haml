@@ -4,11 +4,12 @@
   .user
     .user--title
       %h1 コミュニティー情報
-      - unless @group.user_id == current_user.id
-        - if current_user.already_group?(@group)
-          = button_to "脱退する", leave_group_path, method: :delete, class: "btn btn-primary"
-        - else
-          = button_to "参加する", join_group_path, class: "btn btn-primary"
+      - if user_signed_in?
+        - unless @group.user_id == current_user.id
+          - if current_user.already_group?(@group)
+            = button_to "脱退する", leave_group_path, method: :delete, class: "btn btn-primary"
+          - else
+            = button_to "参加する", join_group_path, class: "btn btn-primary"
     .user__info
       - if @group.group_image.attached? 
         = image_tag @group.group_image, class: "group_image"

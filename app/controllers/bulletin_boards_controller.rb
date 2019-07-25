@@ -1,12 +1,13 @@
 class BulletinBoardsController < ApplicationController
-  before_action :sign_in_user, only:[:show, :edit, :update]
+  before_action :set_group, except:[:update]
+  before_action :authenticate_user!
+  before_action :ensure_member
 
   def show
     @group = Group.find(params[:group_id])
   end
 
   def edit
-    @group = Group.find(params[:group_id])
     @bulletin_board = @group.bulletin_board
   end
 
@@ -22,5 +23,15 @@ class BulletinBoardsController < ApplicationController
   private
   def bulletin_board_params
     params.require(:bulletin_board).permit(:text)
+  end
+
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
+
+  def ensure_member
+    unless @group.user == current_user
+      redirect_to group_path(@group) unless @group.group_users.find_by(user_id: current_user.id)
+    end
   end
 end

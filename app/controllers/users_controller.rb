@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, except:[:index]
+  before_action :ensure_user, only:[:chat]
   def index
     @users = User.page(params[:page])
   end
@@ -22,5 +23,9 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def ensure_user
+    redirect_to chat_user_path(current_user) unless @user == current_user
   end
 end
