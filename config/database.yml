@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: lien_production
-  username: root
-  password:
+  username: Rails.application.credentials.db_username
+  password: Rails.application.credentials.db_password
