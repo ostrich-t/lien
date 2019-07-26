@@ -50,7 +50,8 @@ test:
 production:
   <<: *default
   database: lien_production
+  username: <%= Rails.application.credentials.db[:username] %>
+  password: <%= Rails.application.credentials.db[:password] %>
   socket: /var/lib/mysql/mysql.sock
-  host: lien-dbinstance.c5ddvlv6ay32.ap-northeast-1.rds.amazonaws.com
-  username: Rails.application.credentials.db_username
-  password: Rails.application.credentials.db_password
+  host: <%= Rails.application.credentials.db[:host] %>
+  
