@@ -1,5 +1,5 @@
 class BulletinBoardsController < ApplicationController
-  before_action :set_group, except:[:update]
+  before_action :set_group
   before_action :authenticate_user!
   before_action :ensure_member
 
