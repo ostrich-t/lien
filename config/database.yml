@@ -52,9 +52,8 @@ test:
 #
 production:
   <<: *default
-  database: lien_production
+  database: lien_production  
   username: <%= Rails.application.credentials.db[:username] %>
   password: <%= Rails.application.credentials.db[:password] %>
   socket: /var/lib/mysql/mysql.sock
   host: <%= Rails.application.credentials.db[:host] %>
-  
