@@ -13,12 +13,12 @@
         = button_to user_facebook_omniauth_authorize_path, method: :get, class: "facebook" do
           %span.facebook-icon
             = icon "fab","facebook-square"
-          Facebookでログイン
+          Facebookでログイン/登録
       .field
         = button_to user_google_oauth2_omniauth_authorize_path, method: :get, class: "google" do
           %span.google-icon
             = icon "fab","google"
-          Googleでログイン
+          Googleでログイン/登録
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: "form-validate"}) do |f|
         .field
           = f.label :email
