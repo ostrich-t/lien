@@ -1,8 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    # after(:build) do |profile|
-    # end
-    gender {"aa"}
+    gender {"男"}
     birth_info {"1990-01-20"}
     residence {"aa"}
     hobby {"aa"}
