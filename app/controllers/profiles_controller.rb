@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to root_path
     else
-      render :profile
+      render :new
     end
   end
 
@@ -23,7 +23,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params) && @user.update(user_params)
       redirect_to user_path(current_user)
     else
-      render :profile
+      render :edit
     end
   end
 
